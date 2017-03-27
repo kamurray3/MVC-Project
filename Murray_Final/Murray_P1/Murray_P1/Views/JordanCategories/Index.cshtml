@@ -1,0 +1,32 @@
+﻿@model List<Murray_P1.Models.ProductCategory>
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+
+@*-------------------------------------------------------*@
+@*Fill HTML Table with retrieved categories data*@
+@*-------------------------------------------------------*@
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            Jordan Category Name
+        </th>
+    </tr>
+
+    @foreach (var categoryObject in Model)
+    {
+        <tr>
+            <td>
+                @*@categoryObject.CategoryName*@
+                @Html.DisplayFor(item => categoryObject.CategoryName)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*-------------------------------------------------------*@
+@*Fill Select Element with retrieved categories data*@
+@*-------------------------------------------------------*@

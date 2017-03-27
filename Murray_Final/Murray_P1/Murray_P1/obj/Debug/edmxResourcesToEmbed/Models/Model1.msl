@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JordanDBModelStoreContainer" CdmEntityContainer="JordanDBEntities">
+    <EntitySetMapping Name="JordanInventories">
+      <EntityTypeMapping TypeName="JordanDBModel.JordanInventory">
+        <MappingFragment StoreEntitySet="JordanInventory">
+          <ScalarProperty Name="ItemStyleNum" ColumnName="ItemStyleNum" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductCategoryCode" ColumnName="ProductCategoryCode" />
+          <ScalarProperty Name="ImageFile" ColumnName="ImageFile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PossibleStates">
+      <EntityTypeMapping TypeName="JordanDBModel.PossibleState">
+        <MappingFragment StoreEntitySet="PossibleStates">
+          <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
+          <ScalarProperty Name="FullStateName" ColumnName="FullStateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="JordanDBModel.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategories">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShopCustomers">
+      <EntityTypeMapping TypeName="JordanDBModel.ShopCustomer">
+        <MappingFragment StoreEntitySet="ShopCustomers">
+          <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+          <ScalarProperty Name="CustomerLastName" ColumnName="CustomerLastName" />
+          <ScalarProperty Name="CustomerFirstName" ColumnName="CustomerFirstName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerCity" ColumnName="CustomerCity" />
+          <ScalarProperty Name="CustomerState" ColumnName="CustomerState" />
+          <ScalarProperty Name="CustomerZipCode" ColumnName="CustomerZipCode" />
+          <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JordanDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="JordanInventory">
+    <Key>
+      <PropertyRef Name="ItemStyleNum" />
+    </Key>
+    <Property Name="ItemStyleNum" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="50" />
+    <Property Name="ProductDescription" Type="varchar" MaxLength="1000" />
+    <Property Name="ProductPrice" Type="money" />
+    <Property Name="ProductCategoryCode" Type="varchar" MaxLength="20" />
+    <Property Name="ImageFile" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PossibleStates">
+    <Key>
+      <PropertyRef Name="StateAbbr" />
+    </Key>
+    <Property Name="StateAbbr" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="FullStateName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ProductCategories">
+    <Key>
+      <PropertyRef Name="CategoryName" />
+    </Key>
+    <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShopCustomers">
+    <Key>
+      <PropertyRef Name="CustomerEmail" />
+    </Key>
+    <Property Name="CustomerEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerLastName" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerAddress" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerCity" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerState" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerZipCode" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerPhoneNumber" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="JordanDBModelStoreContainer">
+    <EntitySet Name="JordanInventory" EntityType="Self.JordanInventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PossibleStates" EntityType="Self.PossibleStates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategories" EntityType="Self.ProductCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShopCustomers" EntityType="Self.ShopCustomers" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Project 1</h1>
+    <p class="lead">MVC Version of Project 3 from 340</p>
+</div>
+
+<div align="center" class="row">
+    <div align="center" class="col-md-4">
+        <h2>Products</h2>
+        <p>
+            A page with an html table of all the categories with links to go to another html table with all the products in that category. The picture
+            is a link to the details page of the product.
+        </p>
+        <p>@Html.ActionLink("Products", "ChooseCategory", "JordanCategories")</p>
+    </div>
+    <div align="center" class="col-md-4">
+        <h2>Customers</h2>
+        <p>A page with an html table of all the possible states there are customers in. Click any state and it will take you to a page
+           where it will show you all the customers in that state and you can click on the first name and it will take you to a details page for that customer.
+        </p>
+        <p>@Html.ActionLink("Customers", "ChooseState", "JordanStates")</p>
+    </div>
+</div>

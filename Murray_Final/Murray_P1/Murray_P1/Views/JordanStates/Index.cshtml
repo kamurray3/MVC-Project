@@ -1,0 +1,32 @@
+﻿@model List<Murray_P1.Models.PossibleState>
+@{
+    ViewBag.Title = "States";
+}
+
+<h2>States</h2>
+
+@*-------------------------------------------------------*@
+@*Fill HTML Table with retrieved categories data*@
+@*-------------------------------------------------------*@
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            State Name
+        </th>
+    </tr>
+
+    @foreach (var stateObject in Model)
+    {
+        <tr>
+            <td>
+                @*@statesObject.FullStateName*@
+                @Html.DisplayFor(item => stateObject.FullStateName)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*-------------------------------------------------------*@
+@*Fill Select Element with retrieved categories data*@
+@*-------------------------------------------------------*@

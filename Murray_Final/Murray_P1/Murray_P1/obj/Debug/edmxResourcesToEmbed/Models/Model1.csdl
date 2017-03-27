@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JordanDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="JordanInventory">
+    <Key>
+      <PropertyRef Name="ItemStyleNum" />
+    </Key>
+    <Property Name="ItemStyleNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ProductPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ProductCategoryCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ImageFile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PossibleState">
+    <Key>
+      <PropertyRef Name="StateAbbr" />
+    </Key>
+    <Property Name="StateAbbr" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FullStateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="CategoryName" />
+    </Key>
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShopCustomer">
+    <Key>
+      <PropertyRef Name="CustomerEmail" />
+    </Key>
+    <Property Name="CustomerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="JordanDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="JordanInventories" EntityType="Self.JordanInventory" />
+    <EntitySet Name="PossibleStates" EntityType="Self.PossibleState" />
+    <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
+    <EntitySet Name="ShopCustomers" EntityType="Self.ShopCustomer" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Murray_P1.Models.ProductCategory>
+
+@{
+    ViewBag.Title = "ChooseCategory";
+}
+
+<h2>ChooseCategory</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            View Inventory in Category
+            @*@Html.DisplayNameFor(model => model.CategoryName)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var catObject in Model)
+    {
+        <tr>
+            <td>
+                <b>
+                    @Html.ActionLink(catObject.CategoryName,
+                                     "ByCategory",
+                                     "JordanInventory",
+                                     new { id = catObject.CategoryName},
+                                     null)
+                </b>
+            </td>
+            @*<td>@productObject.ItemStyleNum </td>
+                <td>@productObject.ProductPrice.ToString("C")</td>*@
+        </tr>
+
+        @*<tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ProductCategoryCode }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ProductCategoryCode }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ProductCategoryCode })
+                </td>
+            </tr>*@
+    }
+
+</table>

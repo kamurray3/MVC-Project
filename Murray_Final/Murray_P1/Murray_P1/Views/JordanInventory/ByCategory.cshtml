@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Murray_P1.Models.JordanInventory>
+
+@{
+    ViewBag.Title = "ByCategory";
+}
+
+<h2>Category: @ViewBag.ChosenCategoryCode</h2>
+
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemStyleNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCategoryCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href='@Url.Action("Details", "JordanInventory", new { id = item.ItemStyleNum })'>
+
+                    <img src="@Url.Content("~/Images_Products/" + item.ImageFile)" height="100" width="100">
+
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemStyleNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategoryCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="5" class="text-center">
+            @Html.ActionLink("Back", "ChooseCategory", "JordanCategories")
+        </td>
+
+</table>

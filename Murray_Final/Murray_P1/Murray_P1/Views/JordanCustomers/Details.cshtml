@@ -1,0 +1,82 @@
+﻿@model Murray_P1.Models.ShopCustomer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ShopCustomer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerPhoneNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerEmail }) |
+    @Html.ActionLink("Back to States", "ChooseState", "JordanStates")
+</p>

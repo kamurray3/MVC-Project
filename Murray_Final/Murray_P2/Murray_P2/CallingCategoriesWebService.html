@@ -1,0 +1,155 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>CallingDataWebService</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="Content/bootstrap.css" />
+    <link rel="stylesheet" href="Content/Site.css" />
+    <script>
+
+    //Start
+    $(document).ready(function () {
+
+        console.log("Inside ready function");
+
+
+        //Call the web service on page load
+        callCategoryWebService();
+
+    });
+
+    //--------------------------------------------------------------------
+    // Name: callCategoryWebService
+    //--------------------------------------------------------------------
+    function callCategoryWebService() {
+
+        console.log("callGetJordanInventoryWebService function called!");
+
+        //IMPORTANT!!!!!!!!!!!!!
+        //For local development and testing:
+        //Fire up the WebService and then change the port number below (2389) to whatever
+        // VS assigned it that time.  It should be different for every session.
+        var portNumber = "6985";
+        console.log("portNumber = " + portNumber);
+
+        var hostURL = "http://localhost:" + portNumber + "/";
+
+        var urlString = hostURL +
+                        "api/Categories/";
+        console.log("urlString=" + urlString);
+
+        $.ajax({
+            url: urlString,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: cb_CallWebService_Success
+        });
+
+    }
+
+    //--------------------------------------------------------------------
+    // Name: cb_CallWebService_Success
+    //--------------------------------------------------------------------
+    function cb_CallWebService_Success(parRetrievedData) {
+
+        console.log("Inside cb_CallWebService_Success function");
+        console.dir(parRetrievedData);
+
+        //Fill the Select element
+        fillSelectElement(parRetrievedData);
+
+        //Fill an HTML Table
+        displayHTMLTable(parRetrievedData);
+    }
+
+    //--------------------------------------------------------------------
+    // Name: fillSelectElement
+    //--------------------------------------------------------------------
+    function fillSelectElement(jordanCategories) {
+        console.log("fillSelectElement function called!");
+        console.dir(jordanCategories);
+
+        //Loop through array of objects and fill Select element
+        for (var i = 0; i < jordanCategories.length; i++) {
+
+            var categoryName = jordanCategories[i].CategoryName;
+
+            //Fill select element
+            var categoriesSelect = document.getElementById("categoriesSelect");
+            categoriesSelect.options[i] = new Option(categoryName);
+        }
+    }
+
+    //--------------------------------------------------------------------
+    // Name: displayHTMLTable
+    //--------------------------------------------------------------------
+    function displayHTMLTable(jordanCategories) {
+
+        console.log("displayHTMLTable function called!");
+        console.dir(jordanCategories);
+
+        var tableHTML = "<table class='table table-bordered table-striped'>" +
+                         "  <tr class='warning'> " +
+                         "      <td>Category Name</td" +
+                         "  </tr>";
+
+        //Loop through filled array of objects and fill HTML Table
+        for (var i = 0; i < jordanCategories.length; i++) {
+
+            var categoryName = jordanCategories[i].CategoryName;
+
+            //Add HTML Table row
+            tableHTML = tableHTML + "<tr>" +
+                                        "<td>" + categoryName + "</td>" +
+                                    "</tr>";
+        }
+
+        //End table string
+        tableHTML = tableHTML + "</table>";
+
+        //Display table
+        $("#divDisplayTable").html(tableHTML);
+
+    }
+
+    //--------------------------------------------------------------------
+    // Name: cb_CallWebService_Error
+    //--------------------------------------------------------------------
+    function cb_CallWebService_Error(parXMLHttpRequestObject) {
+        $("#divDebugPrint").show();
+        $("#divDebugPrint").append(parXMLHttpRequestObject.responseText);
+    }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Calling a Web Service that Returns Data</h1>
+            <span class="lead">Calling our /api/Categories web service from an HTML page! (Twice!)</span>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">On page load the <i>Categories</i> Web Service is called</div>
+            <div class="panel-body">
+
+                <form>
+
+                    Jordan Categories <br />
+                    <select id="categoriesSelect">
+                        <option></option>
+                    </select>
+
+
+                    <p></p>
+                    <div id="divDisplayTable"></div>
+
+                </form>
+            </div>
+            <div class="panel-footer text-center">Bootstrap Theme: <i>Cyborg</i> </div>
+        </div>
+    </div>
+
+</body>
+</html>
